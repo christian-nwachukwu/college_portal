@@ -1,0 +1,52 @@
+{% extends 'layout.html' %}
+
+{% block content %}
+
+
+<div class="card text-center">
+    <div class="card-header">
+      <ul class="nav nav-tabs card-header-tabs">
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="true" href="#">Active</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Link</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link disabled" aria-disabled="true">Disabled</a>
+        </li>
+      </ul>
+    </div>
+    <div class="card-body">
+      <h5 class="card-title"><td>{{ customer_record.firstname }} {{ customer_record.lastname }}</td></h5>
+      <p class="card-text">The Personal Data Protection Act also protects your personal data in general.</p>
+      <br/>
+
+      <div class="card" style="width: 18rem;">
+        <table>
+            <tr>
+                <td>
+                    <ul class="list-group list-group-flush">
+                    <li class="list-group-item">{{ customer_record.id }}</li>
+                    <li class="list-group-item">{{ customer_record.email }}</li>
+                    <li class="list-group-item">{{ customer_record.phone }}</li>
+                    <li class="list-group-item">{{ customer_record.address }}</li>
+                    <li class="list-group-item">{{ customer_record.city }}</li>
+                    <li class="list-group-item">{{ customer_record.state }}</li>
+                    <li class="list-group-item">{{ customer_record.zipcode }}</li>
+                    <li class="list-group-item">{{ customer_record.created_at }}</li>
+                    </ul>
+                </td>
+            </tr>
+        </table>
+      </div>
+    </div>
+  </div>
+
+ <br/>
+ <a href="{% url 'index' %}" class="btn btn-secondary">Back</a>
+ <a href="{% url 'delete_record' customer_record.id %}" class="btn btn-danger">Delete</a>
+ <a href="{% url 'modify_record' customer_record.id %}" class="btn btn-secondary">Update Record</a>
+
+
+{% endblock %}
